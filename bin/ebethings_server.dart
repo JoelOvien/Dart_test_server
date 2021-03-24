@@ -3,8 +3,7 @@ import 'dart:convert';
 
 Future<void> main() async {
   final omoserver = await createServer();
-  print(
-      'Your server have start on: ${omoserver.address} port ${omoserver.port}');
+  print('Your server have start on: ${omoserver.address} port ${omoserver.port}');
   await handleRequests(omoserver);
 }
 
@@ -21,10 +20,10 @@ Future<void> handleRequests(HttpServer omoserver) async {
         handleGetRequest(request);
         break;
       case 'POST':
-        handlePostRequest(request);
+        await handlePostRequest(request);
         break;
       case 'PUT':
-        handlePutRequest(request);
+        await handlePutRequest(request);
         break;
       default:
         handleDefault(request);
